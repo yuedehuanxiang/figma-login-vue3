@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import kittyAvatar from './assets/kitty-avatar.png'
+import kittyAvatarDark from './assets/kitty-avatar2.png'
 import inputIcon from './assets/input-icon.svg'
 
 const systemTheme = window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
@@ -15,6 +16,7 @@ const codeDigits = ref(['', '', '', '', '', ''])
 const themeLabel = computed(() => (theme.value === 'dark' ? '深色' : '浅色'))
 const toggleLabel = computed(() => (theme.value === 'dark' ? '切换浅色' : '切换深色'))
 const codeValue = computed(() => codeDigits.value.join(''))
+const currentAvatar = computed(() => (theme.value === 'dark' ? kittyAvatarDark : kittyAvatar))
 
 function toggleTheme() {
   theme.value = theme.value === 'dark' ? 'light' : 'dark'
@@ -103,7 +105,7 @@ watch(theme, applyTheme)
     <section class="login-screen" aria-label="登录">
       <div class="brand-block">
         <div class="brand-mark">
-          <img class="brand-mark__image" :src="kittyAvatar" alt="" />
+          <img class="brand-mark__image" :src="currentAvatar" alt="" />
         </div>
 
         <div class="brand-copy">
