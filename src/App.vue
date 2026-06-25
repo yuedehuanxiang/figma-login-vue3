@@ -149,7 +149,6 @@ watch(theme, applyTheme)
     <Teleport to="body">
       <div v-if="isLoginSuccessOpen" class="dialog-backdrop" role="presentation" @click.self="closeDialogs">
         <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="success-title">
-          <div class="dialog__mark" aria-hidden="true">✓</div>
           <h2 id="success-title">登录成功</h2>
           <p>欢迎回来，页面已为你准备好。</p>
           <button class="dialog__button" type="button" @click="closeDialogs">知道了</button>
@@ -158,7 +157,6 @@ watch(theme, applyTheme)
 
       <div v-if="isCodeDialogOpen" class="dialog-backdrop" role="presentation" @click.self="closeDialogs">
         <section class="dialog code-dialog" role="dialog" aria-modal="true" aria-labelledby="code-title">
-          <div class="dialog__mark" aria-hidden="true">6</div>
           <h2 id="code-title">验证码已发送</h2>
           <p>请输入收到的 6 位数字验证码。</p>
           <div class="code-fields" @paste="handleCodePaste">
